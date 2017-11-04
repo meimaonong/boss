@@ -5,9 +5,9 @@ namespace app\modules\v2\controllers;
 use yii\filters\VerbFilter;
 
 use app\controllers\BossBaseController;
-use app\models\User;
+use app\models\Address;
 
-class UserController extends BossBaseController
+class AddressController extends BossBaseController
 {
 
     public function behaviors()
@@ -22,17 +22,18 @@ class UserController extends BossBaseController
         ];
     }
 
-    public function actionGetUsers()
+    public function actionGetAddressList()
     {
-        $user_list = User::find()
+        $address_list = Address::find()
             ->select([
+                'address_id',
                 'user_id',
-                'tel',
-                'email',
-                'status',
-                'login_ip',
-                'login_time',
-                'login_count',
+                'receiver',
+                'receiver_tel',
+                'province_id',
+                'city_id',
+                'district_id',
+                'address_detail',
                 'del_flag',
                 'created_time',
                 'updated_time'
@@ -43,7 +44,7 @@ class UserController extends BossBaseController
         $res = [
         	'code' => 0,
         	'msg'=> '',
-        	'data' => $user_list
+        	'data' => $address_list
         ];
 
         return $res;

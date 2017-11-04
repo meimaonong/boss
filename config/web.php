@@ -47,6 +47,14 @@ $config = [
             ],
         ],
         'db' => $db,
+        'httpclient' => [
+            'class' =>'understeam\httpclient\Client',
+            'detectMimeType' => true,
+            'requestOptions' => [
+            ],
+            'requestHeaders' => [
+            ],
+        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

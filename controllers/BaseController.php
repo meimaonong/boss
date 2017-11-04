@@ -47,5 +47,18 @@ class BaseController extends Controller
         }
 
     }
+
+    // post请求
+	public function httpGet($apiAction, $params = []) {
+		$response = Yii::$app->httpclient->get($apiAction, $params, ['http_errors' => false]);
+		return $response;
+	}
+
+	// post请求
+	public function httpPost($apiAction, $params = []) {
+		$response = Yii::$app->httpclient->post($apiAction, $params, ['http_errors' => false]);
+		return $response;
+	}
+	
 	
 }
